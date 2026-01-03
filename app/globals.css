@@ -1,5 +1,26 @@
 @import "tailwindcss";
 
+@layer base {
+
+  *,
+  *::before,
+  *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  /* For Firefox. */
+  * {
+    scrollbar-width: none;
+  }
+
+  /* For WebKit (Chrome & Safari). */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 :root {
   --main: #ED8413;
   --hover-main: #D2620D;
@@ -9,17 +30,9 @@
   --font-plus-jakarta: "Plus Jakarta Sans", sans-serif;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
   background: var(--white);
   font-family: var(--font-plus-jakarta);
-  margin-left: 100px;
-  margin-right: 100px;
 }
 
 @theme inline {
