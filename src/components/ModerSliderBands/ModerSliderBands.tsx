@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { bandCatalog } from "@/mocks/bandas";
+import { bandCatalog } from "@/src/mocks/bandas";
 import './ModerSliderBands.css'
 import Link from "next/link";
 

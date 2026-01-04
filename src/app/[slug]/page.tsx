@@ -1,4 +1,4 @@
-import { bandCatalog } from "@/mocks/bandas";
+import { bandCatalog } from "@/src/mocks/bandas";
 import { notFound } from "next/navigation";
 type SlugBandProps = {
   params: {
