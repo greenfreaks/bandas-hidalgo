@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { bandCatalog } from "../mocks/bandas";
+import { bandCatalog } from "@/mocks/bandas";
 import { LinkButton } from "./LinkButton";
 
 export const SliderBands = () => {

@@ -1,4 +1,4 @@
-import ModernSliderBands from "@/src/components/ModerSliderBands/ModerSliderBands";
+import ModernSliderBands from "@/components/ModerSliderBands/ModerSliderBands";
 export default function Home() {
 
   return (
