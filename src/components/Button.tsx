@@ -6,7 +6,7 @@ export interface ButtonProps {
 
 export const Button = ({ textButton, bgColor, textColor }: ButtonProps) => {
   return (
-    <button className={`bg-${bgColor ? bgColor : 'main'} text-${textColor ? textColor : 'white'} w-50 p-4 cursor-pointer`}>
+    <button className={`w-full p-4 cursor-pointer font-semibold`} style={{backgroundColor: `${bgColor ? bgColor : "#B52533" }`, color: `${textColor ? textColor : "#FFFFFF"}`}}>
       {textButton}
     </button>
   );
