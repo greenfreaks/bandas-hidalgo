@@ -8,6 +8,8 @@ import spotifyLogo from "@/assets/icons/spotify.png"
 import playerImg from "@/assets/player.png"
 import bgInfoBand from "@/assets/bg-infoBand.png"
 import { url } from "inspector";
+import { dateFormatter } from "@/helpers/dateFormatter";
+import { timeFormatter } from "@/helpers/timeFormatter";
 
 type SlugBandProps = {
   params: {
@@ -20,7 +22,6 @@ export async function generateStaticParams() {
     slug: band.url,
   }));
 }
-
 
 export default async function SlugBand({ params }: SlugBandProps) {
   const { slug } = await params;
@@ -67,7 +68,7 @@ export default async function SlugBand({ params }: SlugBandProps) {
           <div>
             {banda.events?.map((bandEvent) => (
               <div className="mt-6 ml-10 flex items-center gap-10 uppercase font-semibold">
-                <p style={{ color: `${banda.mainColor}` }}>17 Ene, 2026</p>
+                <p style={{ color: `${banda.mainColor}` }}>{dateFormatter(bandEvent.date)} - {timeFormatter(bandEvent.time)}</p>
                 <p><a href={bandEvent.googleLocation} target="_blank">{bandEvent.place}</a></p>
                 <p>{bandEvent.municipality}, {bandEvent.state}</p>
               </div>
