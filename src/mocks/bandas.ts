@@ -119,6 +119,7 @@ export const bandCatalog: Banda[] = [
     genero: [
       "Rock",
     ],
+    phone: 5535068781,
     mainColor: "#B52533",
     facebook: "www.facebook.com",
     instagram: "www.instagram.com",
