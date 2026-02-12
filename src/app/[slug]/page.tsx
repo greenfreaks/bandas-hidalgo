@@ -4,10 +4,9 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import facebookLogo from "@/assets/icons/facebook.png";
 import instagramLogo from "@/assets/icons/instagram.png";
-import spotifyLogo from "@/assets/icons/spotify.png"
-import playerImg from "@/assets/player.png"
-import bgInfoBand from "@/assets/bg-infoBand.png"
-import { url } from "inspector";
+import spotifyLogo from "@/assets/icons/spotify.png";
+import playerImg from "@/assets/player.png";
+import bgInfoBand from "@/assets/bg-infoBand.png";
 import { dateFormatter } from "@/helpers/dateFormatter";
 import { timeFormatter } from "@/helpers/timeFormatter";
 
@@ -55,12 +54,29 @@ export default async function SlugBand({ params }: SlugBandProps) {
         </div>
       </div>
 
-      <div className="w-full h-[318px] pl-[100px] pr-500px text-white mt-3 bg-center bg-no-repeat bg-cover flex items-center" style={{ backgroundImage: `url(${bgInfoBand.src})` }}>
-        <div className="w-full max-w-[70%] flex justify-between">
-          <h1 className="text-title-2 font-extrabold">ESCUCHA <br /> NUESTRA MÚSICA</h1>
-          <Image src={playerImg} alt="player" />
+      {banda.tracksOnSpotify && (
+        <div className="w-full pl-[100px] pr-[100px] py-14 text-white mt-3 bg-center bg-no-repeat bg-cover" style={{ backgroundImage: `url(${bgInfoBand.src})` }}>
+          <h1 className="text-title-2 font-extrabold mb-8">ESCUCHA <br /> NUESTRA MÚSICA</h1>
+
+          {/* CAMBIO AQUÍ: Agregamos 'gap-6' para separar las cards */}
+          <div className="flex gap-6">
+            {banda.tracksOnSpotify?.map((track) => {
+              return (
+                /* CAMBIO AQUÍ: Movemos la 'key' al div padre */
+                <div className="w-full" key={track}>
+                  <iframe
+                    data-testid="embed-iframe"
+                    className="rounded-xl w-full h-[352px] border-0 mt-4 shadow-lg hover:shadow-red-500/50 transition-shadow duration-300" // Agregué un efecto hover opcional
+                    src={`https://open.spotify.com/embed/track/${track}?utm_source=generator`} // Corregí la URL de Spotify para el embed estándar
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="w-full min-h-[318px] pt-[54px] pl-[100px] pr-[100px] pb-[100px] text-white mt-3 bg-center bg-no-repeat bg-cover" style={{ backgroundImage: `url(${bgInfoBand.src})` }}>
         <div className="">

@@ -23,6 +23,7 @@ export interface Banda {
   tiktok?: string;
   mainColor: string;
   events?: BandEvent[];
+  tracksOnSpotify?: string[] | null;
 }
 
 export const bandCatalog: Banda[] = [
@@ -121,7 +122,54 @@ export const bandCatalog: Banda[] = [
     facebook: "www.facebook.com",
     instagram: "www.instagram.com",
     spotify: "www.spotify.com",
-    tiktok: "www.tiktok.com"
+    tiktok: "www.tiktok.com",
+    tracksOnSpotify: [
+      "5QthHjfRrvcYtzYKv1pYm5",
+      "3YechnR7sFNsDodrVPs7hv",
+      "5OoYH1GdSTA1XhIZ9JQBft"
+    ],
+    events: [
+      {
+        date: new Date("2026-02-15"),
+        time: new Date("1970-01-01T16:00:00"),
+        place: "Foro Azidoh",
+        state: "Hidalgo",
+        municipality: "Tizayuca",
+        googleLocation: "https://maps.app.goo.gl/tCijWobTCcvDYYxy9"
+      },
+      {
+        date: new Date("2026-02-15"),
+        time: new Date("1970-01-01T16:00:00"),
+        place: "Casa Cilantro",
+        state: "Hidalgo",
+        municipality: "Tizayuca",
+        googleLocation: "https://maps.app.goo.gl/RCy5GL53LSbH9oYUA"
+      },
+      {
+        date: new Date("2026-02-15"),
+        time: new Date("1970-01-01T16:00:00"),
+        place: "Casa Cilantro",
+        state: "Hidalgo",
+        municipality: "Tizayuca",
+        googleLocation: "https://maps.app.goo.gl/RCy5GL53LSbH9oYUA"
+      },
+      {
+        date: new Date("2026-02-15"),
+        time: new Date("1970-01-01T16:00:00"),
+        place: "Casa Cilantro",
+        state: "Hidalgo",
+        municipality: "Tizayuca",
+        googleLocation: "https://maps.app.goo.gl/RCy5GL53LSbH9oYUA"
+      },
+      {
+        date: new Date("2026-02-15"),
+        time: new Date("1970-01-01T16:00:00"),
+        place: "Casa Cilantro",
+        state: "Hidalgo",
+        municipality: "Tizayuca",
+        googleLocation: "https://maps.app.goo.gl/RCy5GL53LSbH9oYUA"
+      },
+    ]
 
   },
   {
