@@ -16,7 +16,7 @@ export interface Banda {
   url: string;
   desc: string;
   genero: string[];
-  phone?: string;
+  phone?: number;
   facebook?: string;
   instagram?: string;
   spotify?: string;
@@ -42,7 +42,7 @@ export const bandCatalog: Banda[] = [
       "Surf",
     ],
     mainColor: "#B52533",
-    phone: "5619238733",
+    phone: 5619238733,
     facebook: "www.facebook.com",
     instagram: "www.instagram.com",
     spotify: "www.spotify.com",
@@ -101,6 +101,7 @@ export const bandCatalog: Banda[] = [
     genero: [
       "Rock",
     ],
+    phone: 5535068781,
     mainColor: "#B52533",
     facebook: "www.facebook.com",
     instagram: "www.instagram.com",
@@ -114,7 +115,7 @@ export const bandCatalog: Banda[] = [
     estado: "Hidalgo",
     img: "https://i.ibb.co/6dMKp9v/tlaloc.webp",
     url: "tlaloc",
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque odit accusamus est praesentium, culpa veniam dicta exercitationem tempora quaerat assumenda earum beatae recusandae, quisquam sed aliquam cumque quas? Earum, sunt.",
+    desc: "Banda de synth rock originaria de Tizayuca, Hidalgo, que fusiona atmósferas electrónicas con la energía del rock para crear un sonido envolvente y contemporáneo. Su propuesta destaca por melodías hipnóticas y una identidad sonora en constante evolución.",
     genero: [
       "Rock",
     ],

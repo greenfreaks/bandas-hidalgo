@@ -5,10 +5,10 @@ import Image from "next/image";
 import facebookLogo from "@/assets/icons/facebook.png";
 import instagramLogo from "@/assets/icons/instagram.png";
 import spotifyLogo from "@/assets/icons/spotify.png";
-import playerImg from "@/assets/player.png";
 import bgInfoBand from "@/assets/bg-infoBand.png";
 import { dateFormatter } from "@/helpers/dateFormatter";
 import { timeFormatter } from "@/helpers/timeFormatter";
+import Link from "next/link";
 
 type SlugBandProps = {
   params: {
@@ -47,27 +47,22 @@ export default async function SlugBand({ params }: SlugBandProps) {
           <p className="text-title-5 mt-3 font-semibold">{banda.municipio}, {banda.estado}</p>
           <p className="text-p mt-5 mb-[30px]">{banda.desc}</p>
         </div>
-        <div className="ml-[66px] font-semibold relative z-10 w-[341px] flex flex-col items-center">
-          <Button textButton="CONTACTANOS" bgColor={banda.mainColor} />
-          <p className="mt-5">CONTRATACIONES:</p>
-          <p className="">{banda.phone}</p>
+        <div className="font-semibold relative z-10 w-[341px] flex flex-col items-center">
+          <Link href={`https://wa.me/${banda.phone}?text=Hola, me gustaría solicitar información sobre su banda ${banda.name}`} target="_blank" rel="noopener noreferrer"><Button textButton="CONTACTANOS" bgColor={banda.mainColor} /> </Link>
         </div>
       </div>
 
       {banda.tracksOnSpotify && (
         <div className="w-full pl-[100px] pr-[100px] py-14 text-white mt-3 bg-center bg-no-repeat bg-cover" style={{ backgroundImage: `url(${bgInfoBand.src})` }}>
           <h1 className="text-title-2 font-extrabold mb-8">ESCUCHA <br /> NUESTRA MÚSICA</h1>
-
-          {/* CAMBIO AQUÍ: Agregamos 'gap-6' para separar las cards */}
           <div className="flex gap-6">
             {banda.tracksOnSpotify?.map((track) => {
               return (
-                /* CAMBIO AQUÍ: Movemos la 'key' al div padre */
                 <div className="w-full" key={track}>
                   <iframe
                     data-testid="embed-iframe"
                     className="rounded-xl w-full h-[352px] border-0 mt-4 shadow-lg hover:shadow-red-500/50 transition-shadow duration-300" // Agregué un efecto hover opcional
-                    src={`https://open.spotify.com/embed/track/${track}?utm_source=generator`} // Corregí la URL de Spotify para el embed estándar
+                    src={`https://open.spotify.com/embed/track/${track}?utm_source=generator`}
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy"
                   />
