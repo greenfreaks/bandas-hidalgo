@@ -4,10 +4,11 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import facebookLogo from "@/assets/icons/facebook.png";
 import instagramLogo from "@/assets/icons/instagram.png";
-import spotifyLogo from "@/assets/icons/spotify.png"
-import playerImg from "@/assets/player.png"
-import bgInfoBand from "@/assets/bg-infoBand.png"
-import { url } from "inspector";
+import spotifyLogo from "@/assets/icons/spotify.png";
+import bgInfoBand from "@/assets/bg-infoBand.png";
+import { dateFormatter } from "@/helpers/dateFormatter";
+import { timeFormatter } from "@/helpers/timeFormatter";
+import Link from "next/link";
 
 type SlugBandProps = {
   params: {
@@ -20,7 +21,6 @@ export async function generateStaticParams() {
     slug: band.url,
   }));
 }
-
 
 export default async function SlugBand({ params }: SlugBandProps) {
   const { slug } = await params;
@@ -47,19 +47,31 @@ export default async function SlugBand({ params }: SlugBandProps) {
           <p className="text-title-5 mt-3 font-semibold">{banda.municipio}, {banda.estado}</p>
           <p className="text-p mt-5 mb-[30px]">{banda.desc}</p>
         </div>
-        <div className="ml-[66px] font-semibold relative z-10 w-[341px] flex flex-col items-center">
-          <Button textButton="CONTACTANOS" bgColor={banda.mainColor} />
-          <p className="mt-5">CONTRATACIONES:</p>
-          <p className="">{banda.phone}</p>
+        <div className="font-semibold relative z-10 w-[341px] flex flex-col items-center">
+          <Link href={`https://wa.me/${banda.phone}?text=Hola, me gustaría solicitar información sobre su banda ${banda.name}`} target="_blank" rel="noopener noreferrer"><Button textButton="CONTACTANOS" bgColor={banda.mainColor} /> </Link>
         </div>
       </div>
 
-      <div className="w-full h-[318px] pl-[100px] pr-500px text-white mt-3 bg-center bg-no-repeat bg-cover flex items-center" style={{ backgroundImage: `url(${bgInfoBand.src})` }}>
-        <div className="w-full max-w-[70%] flex justify-between">
-          <h1 className="text-title-2 font-extrabold">ESCUCHA <br /> NUESTRA MÚSICA</h1>
-          <Image src={playerImg} alt="player" />
+      {banda.tracksOnSpotify && (
+        <div className="w-full pl-[100px] pr-[100px] py-14 text-white mt-3 bg-center bg-no-repeat bg-cover" style={{ backgroundImage: `url(${bgInfoBand.src})` }}>
+          <h1 className="text-title-2 font-extrabold mb-8">ESCUCHA <br /> NUESTRA MÚSICA</h1>
+          <div className="flex gap-6">
+            {banda.tracksOnSpotify?.map((track) => {
+              return (
+                <div className="w-full" key={track}>
+                  <iframe
+                    data-testid="embed-iframe"
+                    className="rounded-xl w-full h-[352px] border-0 mt-4 shadow-lg hover:shadow-red-500/50 transition-shadow duration-300" // Agregué un efecto hover opcional
+                    src={`https://open.spotify.com/embed/track/${track}?utm_source=generator`}
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="w-full min-h-[318px] pt-[54px] pl-[100px] pr-[100px] pb-[100px] text-white mt-3 bg-center bg-no-repeat bg-cover" style={{ backgroundImage: `url(${bgInfoBand.src})` }}>
         <div className="">
@@ -67,7 +79,7 @@ export default async function SlugBand({ params }: SlugBandProps) {
           <div>
             {banda.events?.map((bandEvent) => (
               <div className="mt-6 ml-10 flex items-center gap-10 uppercase font-semibold">
-                <p style={{ color: `${banda.mainColor}` }}>17 Ene, 2026</p>
+                <p style={{ color: `${banda.mainColor}` }}>{dateFormatter(bandEvent.date)} - {timeFormatter(bandEvent.time)}</p>
                 <p><a href={bandEvent.googleLocation} target="_blank">{bandEvent.place}</a></p>
                 <p>{bandEvent.municipality}, {bandEvent.state}</p>
               </div>
