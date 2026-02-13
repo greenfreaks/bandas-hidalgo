@@ -7,6 +7,13 @@ export interface BandEvent {
   municipality: string;
   googleLocation: string
 }
+
+export interface BandSocials {
+  facebook?: string | undefined;
+  instagram?: string | undefined;
+  spotify?: string | undefined;
+  tiktok?: string | undefined;
+}
 export interface Banda {
   id: number;
   name: string;
@@ -17,10 +24,7 @@ export interface Banda {
   desc: string;
   genero: string[];
   phone?: number;
-  facebook?: string;
-  instagram?: string;
-  spotify?: string;
-  tiktok?: string;
+  bandSocials?: BandSocials;
   mainColor: string;
   events?: BandEvent[];
   tracksOnSpotify?: string[] | null;
@@ -34,19 +38,20 @@ export const bandCatalog: Banda[] = [
     estado: "Hidalgo",
     img: "https://i.ibb.co/FP9nHR0/tarjetas-de-presentaci-n-lfda.png",
     url: "los-fantasmas-del-atico",
-    desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque odit accusamus est praesentium, culpa veniam dicta exercitationem tempora quaerat assumenda earum beatae recusandae, quisquam sed aliquam cumque quas? Earum, sunt.",
+    desc: "Una banda que desata la fuerza del rock & roll, rockabilly y surf con un estilo propio y una actitud explosiva. Cada show es una descarga de energía, guitarras encendidas y ritmo contagioso que transforma cualquier escenario en una verdadera fiesta.",
     genero: [
       "Rock",
       "Rock N Roll",
       "Rockabilly",
       "Surf",
     ],
+
+    bandSocials:
+    {
+      facebook: "https://www.facebook.com/losfantasmasdelatico",
+    },
     mainColor: "#B52533",
     phone: 5619238733,
-    facebook: "www.facebook.com",
-    instagram: "www.instagram.com",
-    spotify: "www.spotify.com",
-    tiktok: "www.tiktok.com",
     events: [
       {
         date: new Date("2026-02-15"),
@@ -103,10 +108,6 @@ export const bandCatalog: Banda[] = [
     ],
     phone: 5535068781,
     mainColor: "#B52533",
-    facebook: "www.facebook.com",
-    instagram: "www.instagram.com",
-    spotify: "www.spotify.com",
-    tiktok: "www.tiktok.com"
   },
   {
     id: 3,
@@ -121,10 +122,13 @@ export const bandCatalog: Banda[] = [
     ],
     phone: 5535068781,
     mainColor: "#B52533",
-    facebook: "www.facebook.com",
-    instagram: "www.instagram.com",
-    spotify: "www.spotify.com",
-    tiktok: "www.tiktok.com",
+    bandSocials:
+    {
+      facebook: "https://www.facebook.com/Tlaloc.band.mx",
+      instagram: "https://www.instagram.com/tlaloc.band/",
+      spotify: "https://open.spotify.com/intl-es/artist/6abIa42pbVxmHYt1GXIqOI",
+    }
+    ,
     tracksOnSpotify: [
       "5QthHjfRrvcYtzYKv1pYm5",
       "3YechnR7sFNsDodrVPs7hv",
@@ -186,10 +190,6 @@ export const bandCatalog: Banda[] = [
       "Versátil",
     ],
     mainColor: "#B52533",
-    facebook: "www.facebook.com",
-    instagram: "www.instagram.com",
-    spotify: "www.spotify.com",
-    tiktok: "www.tiktok.com"
   },
 
   {
@@ -205,9 +205,5 @@ export const bandCatalog: Banda[] = [
       "Cumbia",
     ],
     mainColor: "#B52533",
-    facebook: "www.facebook.com",
-    instagram: "www.instagram.com",
-    spotify: "www.spotify.com",
-    tiktok: "www.tiktok.com"
   },
 ]
