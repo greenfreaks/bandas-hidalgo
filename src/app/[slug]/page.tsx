@@ -5,10 +5,12 @@ import Image from "next/image";
 import facebookLogo from "@/assets/icons/facebook.png";
 import instagramLogo from "@/assets/icons/instagram.png";
 import spotifyLogo from "@/assets/icons/spotify.png";
+import tiktokLogo from "@/assets/icons/tik-tok.png";
 import bgInfoBand from "@/assets/bg-infoBand.png";
 import { dateFormatter } from "@/helpers/dateFormatter";
 import { timeFormatter } from "@/helpers/timeFormatter";
 import Link from "next/link";
+import { SocialLinks } from "@/components/social-links";
 
 type SlugBandProps = {
   params: {
@@ -31,11 +33,9 @@ export default async function SlugBand({ params }: SlugBandProps) {
   return (
     <section>
       <div className="absolute">
-        <div className="w-[30px] flex flex-col gap-[22px] relative top-[76px] left-[38px] z-10">
-          <Image src={facebookLogo} alt="Logo Facebook" />
-          <Image src={instagramLogo} alt="Logo Instagram" />
-          <Image src={spotifyLogo} alt="Logo Spotify" />
-        </div>
+        {banda.bandSocials && (
+          <SocialLinks socials={banda.bandSocials} iconSize={30} className="flex flex-col gap-5.5 relative top-19 left-9.5 z-20" />
+        )}
       </div>
       <div className="w-screen h-[706px] pt-[58px] bg-center bg-no-repeat bg-cover text-white" style={{ backgroundImage: `url(${banda.img})` }}>
         {/* Overlay negro */}
@@ -73,20 +73,22 @@ export default async function SlugBand({ params }: SlugBandProps) {
         </div>
       )}
 
-      <div className="w-full min-h-[318px] pt-[54px] pl-[100px] pr-[100px] pb-[100px] text-white mt-3 bg-center bg-no-repeat bg-cover" style={{ backgroundImage: `url(${bgInfoBand.src})` }}>
-        <div className="">
-          <h1 className="text-title-2 font-extrabold">PRÓXIMOS EVENTOS</h1>
-          <div>
-            {banda.events?.map((bandEvent) => (
-              <div className="mt-6 ml-10 flex items-center gap-10 uppercase font-semibold">
-                <p style={{ color: `${banda.mainColor}` }}>{dateFormatter(bandEvent.date)} - {timeFormatter(bandEvent.time)}</p>
-                <p><a href={bandEvent.googleLocation} target="_blank">{bandEvent.place}</a></p>
-                <p>{bandEvent.municipality}, {bandEvent.state}</p>
-              </div>
-            ))}
+      {banda.events && (
+        <div className="w-full min-h-[318px] pt-[54px] pl-[100px] pr-[100px] pb-[100px] text-white mt-3 bg-center bg-no-repeat bg-cover" style={{ backgroundImage: `url(${bgInfoBand.src})` }}>
+          <div className="">
+            <h1 className="text-title-2 font-extrabold">PRÓXIMOS EVENTOS</h1>
+            <div>
+              {banda.events?.map((bandEvent) => (
+                <div className="mt-6 ml-10 flex items-center gap-10 uppercase font-semibold">
+                  <p style={{ color: `${banda.mainColor}` }}>{dateFormatter(bandEvent.date)} - {timeFormatter(bandEvent.time)}</p>
+                  <p><a href={bandEvent.googleLocation} target="_blank">{bandEvent.place}</a></p>
+                  <p>{bandEvent.municipality}, {bandEvent.state}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }
