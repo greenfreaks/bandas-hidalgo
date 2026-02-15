@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { BannerBand } from "./components/banner-band";
 import { SpotifyTracksBand } from "./components/spotify-tracks-band";
 import { BandEvents } from "./components/band-events";
+import { BandMembers } from "./components/band-members";
 
 type SlugBandProps = {
   params: {
@@ -25,7 +26,6 @@ export default async function SlugBand({ params }: SlugBandProps) {
   return (
     <section>
       <BannerBand banda={banda} />
-
       {banda.tracksOnSpotify && (
         <SpotifyTracksBand banda={banda} />
       )}
@@ -33,6 +33,7 @@ export default async function SlugBand({ params }: SlugBandProps) {
       {banda.events && (
         <BandEvents eventBand={banda} />
       )}
+      <BandMembers />
     </section>
   );
 }
