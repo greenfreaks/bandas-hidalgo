@@ -33,7 +33,7 @@ export default async function SlugBand({ params }: SlugBandProps) {
       {banda.events && (
         <BandEvents eventBand={banda} />
       )}
-      <BandMembers />
+      <BandMembers bandMembers={banda} />
     </section>
   );
 }

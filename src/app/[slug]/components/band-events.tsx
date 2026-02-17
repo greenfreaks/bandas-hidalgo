@@ -1,6 +1,6 @@
 import { dateFormatter } from "@/helpers/dateFormatter";
 import { timeFormatter } from "@/helpers/timeFormatter";
-import { Banda } from "@/mocks/bandas";
+import { Banda } from "../types/band.types";
 import bgInfoBand from "@/assets/bg-infoBand.png";
 
 export interface BandEventsProps {
