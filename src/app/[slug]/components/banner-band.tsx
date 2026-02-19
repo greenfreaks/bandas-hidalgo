@@ -1,6 +1,7 @@
 import { Button } from "@/components/Button";
 import { SocialLinks } from "@/components/social-links";
-import { Banda } from "@/mocks/bandas"
+import { Banda
+ } from "../types/band.types";
 import Link from "next/link";
 
 export interface BannerBandProps{
