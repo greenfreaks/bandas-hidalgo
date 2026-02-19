@@ -13,8 +13,8 @@ export const BandEvents = ({ eventBand }: BandEventsProps) => {
       <div className="">
         <h1 className="text-title-2 font-extrabold">PRÓXIMOS EVENTOS</h1>
         <div>
-          {eventBand.events?.map((bandEvent) => (
-            <div className="mt-6 ml-10 flex items-center gap-10 uppercase font-semibold">
+          {eventBand.events?.map((bandEvent, index) => (
+            <div key={index} className="mt-6 ml-10 flex items-center gap-10 uppercase font-semibold">
               <p style={{ color: `${eventBand.mainColor}` }}>{dateFormatter(bandEvent.date)} - {timeFormatter(bandEvent.time)}</p>
               <p><a href={bandEvent.googleLocation} target="_blank">{bandEvent.place}</a></p>
               <p>{bandEvent.municipality}, {bandEvent.state}</p>

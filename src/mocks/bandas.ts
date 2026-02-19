@@ -23,7 +23,6 @@ export const bandCatalog: Banda[] = [
       "Rockabilly",
       "Surf",
     ],
-
     bandSocials:
     {
       facebook: "https://www.facebook.com/losfantasmasdelatico",
@@ -110,9 +109,9 @@ export const bandCatalog: Banda[] = [
           "Bajista por necesidad"
         ],
         favoriteArtists: [
-          "Enjambre",
-          "Pastor López",
-          "Paco Amoroso",
+          "Samantha Barron",
+          "Janis Joplin",
+          "Elise Legrow",
         ],
         photo: angy,
         animathedPhoto: angyCartoon,
