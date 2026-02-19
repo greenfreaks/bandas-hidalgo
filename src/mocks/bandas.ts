@@ -1,34 +1,12 @@
+import { Banda } from "@/app/[slug]/types/band.types";
+import mario from "@/assets/slugDeBandas/fantasmas-mario.png";
+import marioCartoon from "@/assets/slugDeBandas/fantasmas-mario-cartoon.png";
+import pablo from "@/assets/slugDeBandas/fantasmas-pablo.png";
+import pabloCartoon from "@/assets/slugDeBandas/fantasmas-pablo-cartoon.png";
+import angy from "@/assets/slugDeBandas/fantasmas-angy.png";
+import angyCartoon from "@/assets/slugDeBandas/fantasmas-angy-cartoon.png";
 
-export interface BandEvent {
-  date: Date;
-  place: string;
-  time: Date;
-  state: string;
-  municipality: string;
-  googleLocation: string
-}
 
-export interface BandSocials {
-  facebook?: string | undefined;
-  instagram?: string | undefined;
-  spotify?: string | undefined;
-  tiktok?: string | undefined;
-}
-export interface Banda {
-  id: number;
-  name: string;
-  municipio: string;
-  estado: string;
-  img: string;
-  url: string;
-  desc: string;
-  genero: string[];
-  phone?: number;
-  bandSocials?: BandSocials;
-  mainColor: string;
-  events?: BandEvent[];
-  tracksOnSpotify?: string[] | null;
-}
 
 export const bandCatalog: Banda[] = [
   {
@@ -45,7 +23,6 @@ export const bandCatalog: Banda[] = [
       "Rockabilly",
       "Surf",
     ],
-
     bandSocials:
     {
       facebook: "https://www.facebook.com/losfantasmasdelatico",
@@ -54,6 +31,7 @@ export const bandCatalog: Banda[] = [
     phone: 5619238733,
     events: [
       {
+        id: 1,
         date: new Date("2026-02-15"),
         time: new Date("1970-01-01T16:00:00"),
         place: "Foro Azidoh",
@@ -62,6 +40,7 @@ export const bandCatalog: Banda[] = [
         googleLocation: "https://maps.app.goo.gl/tCijWobTCcvDYYxy9"
       },
       {
+        id: 2,
         date: new Date("2026-02-15"),
         time: new Date("1970-01-01T16:00:00"),
         place: "Casa Cilantro",
@@ -70,30 +49,75 @@ export const bandCatalog: Banda[] = [
         googleLocation: "https://maps.app.goo.gl/RCy5GL53LSbH9oYUA"
       },
       {
+        id: 3,
         date: new Date("2026-02-15"),
         time: new Date("1970-01-01T16:00:00"),
         place: "Casa Cilantro",
         state: "Hidalgo",
         municipality: "Tizayuca",
         googleLocation: "https://maps.app.goo.gl/RCy5GL53LSbH9oYUA"
+      },
+    ],
+    members: [
+      {
+        id: 1,
+        name: "Mario",
+        role: ["Vocalista", "Bajista"],
+        description: [
+          "Ama a los perros",
+          "Le encantan las cumbias",
+          "Su color favorito es el verde",
+          "Su comida favorita es el pollo en mole verde",
+          "Bajista por necesidad"
+        ],
+        favoriteArtists: [
+          "Rebel Cats",
+          "Ice Nine Kills",
+          "Celso Piña",
+        ],
+        photo: mario,
+        animathedPhoto: marioCartoon,
       },
       {
-        date: new Date("2026-02-15"),
-        time: new Date("1970-01-01T16:00:00"),
-        place: "Casa Cilantro",
-        state: "Hidalgo",
-        municipality: "Tizayuca",
-        googleLocation: "https://maps.app.goo.gl/RCy5GL53LSbH9oYUA"
+        id: 2,
+        name: "Pablo",
+        role: ["Baterista"],
+        description: [
+          "Ama a los perros",
+          "Le encantan las cumbias",
+          "Su color favorito es el verde",
+          "Su comida favorita es el pollo en mole verde",
+          "Bajista por necesidad"
+        ],
+        favoriteArtists: [
+          "Enjambre",
+          "Pastor López",
+          "Paco Amoroso",
+        ],
+        photo: pablo,
+        animathedPhoto: pabloCartoon,
       },
       {
-        date: new Date("2026-02-15"),
-        time: new Date("1970-01-01T16:00:00"),
-        place: "Casa Cilantro",
-        state: "Hidalgo",
-        municipality: "Tizayuca",
-        googleLocation: "https://maps.app.goo.gl/RCy5GL53LSbH9oYUA"
-      },
+        id: 3,
+        name: "Angy",
+        role: ["Tecladista", "Corista"],
+        description: [
+          "Ama a los perros",
+          "Le encantan las cumbias",
+          "Su color favorito es el verde",
+          "Su comida favorita es el pollo en mole verde",
+          "Bajista por necesidad"
+        ],
+        favoriteArtists: [
+          "Samantha Barron",
+          "Janis Joplin",
+          "Elise Legrow",
+        ],
+        photo: angy,
+        animathedPhoto: angyCartoon,
+      }
     ]
+
   },
   {
     id: 2,
@@ -136,6 +160,7 @@ export const bandCatalog: Banda[] = [
     ],
     events: [
       {
+        id: 1,
         date: new Date("2026-02-15"),
         time: new Date("1970-01-01T16:00:00"),
         place: "Foro Azidoh",
@@ -144,6 +169,7 @@ export const bandCatalog: Banda[] = [
         googleLocation: "https://maps.app.goo.gl/tCijWobTCcvDYYxy9"
       },
       {
+        id: 2,
         date: new Date("2026-02-15"),
         time: new Date("1970-01-01T16:00:00"),
         place: "Casa Cilantro",
@@ -152,22 +178,7 @@ export const bandCatalog: Banda[] = [
         googleLocation: "https://maps.app.goo.gl/RCy5GL53LSbH9oYUA"
       },
       {
-        date: new Date("2026-02-15"),
-        time: new Date("1970-01-01T16:00:00"),
-        place: "Casa Cilantro",
-        state: "Hidalgo",
-        municipality: "Tizayuca",
-        googleLocation: "https://maps.app.goo.gl/RCy5GL53LSbH9oYUA"
-      },
-      {
-        date: new Date("2026-02-15"),
-        time: new Date("1970-01-01T16:00:00"),
-        place: "Casa Cilantro",
-        state: "Hidalgo",
-        municipality: "Tizayuca",
-        googleLocation: "https://maps.app.goo.gl/RCy5GL53LSbH9oYUA"
-      },
-      {
+        id: 3,
         date: new Date("2026-02-15"),
         time: new Date("1970-01-01T16:00:00"),
         place: "Casa Cilantro",
@@ -176,7 +187,6 @@ export const bandCatalog: Banda[] = [
         googleLocation: "https://maps.app.goo.gl/RCy5GL53LSbH9oYUA"
       },
     ]
-
   },
   {
     id: 4,
