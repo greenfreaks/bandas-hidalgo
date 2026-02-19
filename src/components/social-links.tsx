@@ -6,7 +6,7 @@ import instagramLogo from "@/assets/icons/instagram.png";
 import spotifyLogo from "@/assets/icons/spotify.png";
 import tiktokLogo from "@/assets/icons/tik-tok.png";
 
-import type { BandSocials } from "@/mocks/bandas";
+import type { BandSocials } from "@/app/[slug]/types/band.types";
 
 export interface SocialLinksProps {
   socials?: BandSocials;

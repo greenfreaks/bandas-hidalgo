@@ -1,4 +1,4 @@
-import { Banda } from "@/mocks/bandas";
+import { Banda } from "../types/band.types";
 import bgInfoBand from "@/assets/bg-infoBand.png";
 
 export interface SpotifyTracksBandProps{
