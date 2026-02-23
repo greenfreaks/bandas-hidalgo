@@ -116,7 +116,16 @@ export const bandCatalog: Banda[] = [
         photo: angy,
         animathedPhoto: angyCartoon,
       }
-    ]
+    ],
+    videos: [
+      "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Flosfantasmasdelatico%2Fvideos%2F683745074400072%2F&show_text=false&width=560&t=0",
+
+      "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Flosfantasmasdelatico%2Fvideos%2F1664718161100860%2F&show_text=false&width=560&t=0",
+
+      "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Flosfantasmasdelatico%2Fvideos%2F1041420377815935%2F&show_text=false&width=560&t=0",
+
+
+    ],
 
   },
   {
@@ -151,8 +160,7 @@ export const bandCatalog: Banda[] = [
       facebook: "https://www.facebook.com/Tlaloc.band.mx",
       instagram: "https://www.instagram.com/tlaloc.band/",
       spotify: "https://open.spotify.com/intl-es/artist/6abIa42pbVxmHYt1GXIqOI",
-    }
-    ,
+    },
     tracksOnSpotify: [
       "5QthHjfRrvcYtzYKv1pYm5",
       "3YechnR7sFNsDodrVPs7hv",

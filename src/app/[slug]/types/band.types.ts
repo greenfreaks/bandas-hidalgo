@@ -40,5 +40,6 @@ export interface Banda {
   mainColor: string;
   events?: BandEvent[];
   tracksOnSpotify?: string[] | null;
+  videos?: string[] | null;
   members?: BandMember[] | null;
 }
