@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
+import { Header } from "@/components/Header";
 
 
-const plusJakarta = Plus_Jakarta_Sans({
+const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700", "800"],
   variable: "--font-plus-jakarta",
@@ -23,8 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={plusJakarta.variable}
+        className={montserrat.variable}
       >
+       <Header /> 
         {children}
       </body>
     </html>

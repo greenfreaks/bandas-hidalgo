@@ -44,3 +44,28 @@ body {
   --color-disabled: var(--disabled);
   --color-white: var(--white);
 }
+
+@theme {
+  --text-super-title: 47.78px;
+  --text-title-2: 39.81px;
+  --text-title-3: 33.18px;
+  --text-title-4: 27.65px;
+  --text-title-5: 23.04px;
+  --text-title-6: 19.2px;
+  --text-p: 16px;
+  --small: 13.33px;
+}
+
+@keyframes spinOnce {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.animate-spin-once {
+  animation: spinOnce 0.7s ease-in-out;
+}
