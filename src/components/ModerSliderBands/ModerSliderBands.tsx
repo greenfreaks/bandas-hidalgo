@@ -2,7 +2,6 @@
 
 import React, { useEffect } from "react";
 import { bandCatalog } from "@/mocks/bandas";
-import './ModerSliderBands.css'
 import Link from "next/link";
 
 export default function Slider() {
@@ -80,7 +79,7 @@ export default function Slider() {
               <div className="genre">{band.genero.join(" / ")}</div>
               <div className="des">{band.desc}</div>
               <div className="btn">
-                <Link href={band.url}>
+                <Link href={`/banda/${band.url}`}>
                   <button>Ver más</button>
                 </Link>
               </div>

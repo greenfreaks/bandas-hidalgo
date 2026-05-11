@@ -12,7 +12,7 @@ export interface BandMembersProps {
 }
 
 export const BandMembers = ({ bandMembers, mainColorBand }: BandMembersProps) => {
-  const [cartoonImageActive, setCartoonImageActive] = useState<Boolean>(false);
+  const [cartoonImageActive, setCartoonImageActive] = useState<boolean>(false);
 
   const handleChangeCartoonMode = () => {
     setCartoonImageActive(prev => !prev);
@@ -30,8 +30,8 @@ export const BandMembers = ({ bandMembers, mainColorBand }: BandMembersProps) =>
     <BackgroundSection>
       <h1 className="text-title-2 font-extrabold mb-8">INTEGRANTES</h1>
       <Carousel dotColor={mainColorBand}>
-        {bandMembers.map((member) => (
-          <div className=" flex items-center">
+        {bandMembers.map((member, index) => (
+          <div key={index} className=" flex items-center">
             <div className="flex mr-8 min-w-1/4 perspective-origin-bottom-left">
               {member.photo && member.animathedPhoto && (
                 <div

@@ -1,4 +1,4 @@
-import { Banda } from "@/app/[slug]/types/band.types";
+import { Banda } from "@/app/(main)/banda/[idBanda]/types/band.types";
 import mario from "@/assets/slugDeBandas/fantasmas-mario.png";
 import marioCartoon from "@/assets/slugDeBandas/fantasmas-mario-cartoon.png";
 import pablo from "@/assets/slugDeBandas/fantasmas-pablo.png";
