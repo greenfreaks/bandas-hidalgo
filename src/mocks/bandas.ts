@@ -3,8 +3,8 @@ import mario from "@/assets/slugDeBandas/fantasmas-mario.png";
 import marioCartoon from "@/assets/slugDeBandas/fantasmas-mario-cartoon.png";
 import pablo from "@/assets/slugDeBandas/fantasmas-pablo.png";
 import pabloCartoon from "@/assets/slugDeBandas/fantasmas-pablo-cartoon.png";
-import angy from "@/assets/slugDeBandas/fantasmas-angy.png";
-import angyCartoon from "@/assets/slugDeBandas/fantasmas-angy-cartoon.png";
+import lalo from "@/assets/slugDeBandas/fantasmas-lalo.png";
+import laloCartoon from "@/assets/slugDeBandas/fantasmas-lalo-cartoon.png";
 
 
 
@@ -72,8 +72,8 @@ export const bandCatalog: Banda[] = [
         ],
         favoriteArtists: [
           "Rebel Cats",
+          "Chingadazo De Kung Fu",
           "Ice Nine Kills",
-          "Celso Piña",
         ],
         photo: mario,
         animathedPhoto: marioCartoon,
@@ -81,7 +81,7 @@ export const bandCatalog: Banda[] = [
       {
         id: 2,
         name: "Pablo",
-        role: ["Baterista"],
+        role: ["Guitarrista líder"],
         description: [
           "Ama a los perros",
           "Le encantan las cumbias",
@@ -99,8 +99,8 @@ export const bandCatalog: Banda[] = [
       },
       {
         id: 3,
-        name: "Angy",
-        role: ["Tecladista", "Corista"],
+        name: "Lalo",
+        role: ["Baterista"],
         description: [
           "Ama a los perros",
           "Le encantan las cumbias",
@@ -109,12 +109,12 @@ export const bandCatalog: Banda[] = [
           "Bajista por necesidad"
         ],
         favoriteArtists: [
-          "Samantha Barron",
-          "Janis Joplin",
-          "Elise Legrow",
+          "Enrique Guzmán",
+          "Los Hooligans",
+          "Elvis Presley",
         ],
-        photo: angy,
-        animathedPhoto: angyCartoon,
+        photo: lalo,
+        animathedPhoto: laloCartoon,
       }
     ],
     videos: [
