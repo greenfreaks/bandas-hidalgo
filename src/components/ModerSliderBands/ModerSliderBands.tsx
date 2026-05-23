@@ -3,6 +3,7 @@
 import React, { useEffect } from "react";
 import { bandCatalog } from "@/mocks/bandas";
 import Link from "next/link";
+import "./ModerSliderBands.css";
 
 export default function Slider() {
 
@@ -15,8 +16,8 @@ export default function Slider() {
       ".carousel .timeRunning"
     ) as HTMLElement;
 
-    let timeRunning = 3000;
-    let timeAutoNext = 7000;
+    const timeRunning = 3000;
+    const timeAutoNext = 7000;
 
     let runTimeOut: NodeJS.Timeout;
     let runNextAuto: NodeJS.Timeout;

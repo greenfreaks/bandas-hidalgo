@@ -1,8 +1,5 @@
 @import "tailwindcss";
-@import "../components/ModerSliderBands/ModerSliderBands.css";
-
 @layer base {
-
   *,
   *::before,
   *::after {
