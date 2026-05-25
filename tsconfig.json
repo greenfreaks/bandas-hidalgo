@@ -16,21 +16,20 @@
     "noUncheckedSideEffectImports": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "ignoreDeprecations": "6.0",
     "jsx": "react-jsx",
     "incremental": true,
+
     "plugins": [
       {
         "name": "next"
       }
     ],
-    "baseUrl": ".",
+
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["./src/*"]
     }
   },
+
   "include": [
     "next-env.d.ts",
     "**/*.d.ts",
@@ -42,6 +41,7 @@
     "dist/types/**/*.ts",
     "dist/dev/types/**/*.ts"
   ],
+
   "exclude": [
     "node_modules"
   ]
