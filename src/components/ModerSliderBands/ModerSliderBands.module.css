@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-/* Forzamos a Next.js a que mantenga los nombres planos bajo .sliderContainer */
+/* Carousel principal */
 .sliderContainer :global(.carousel) {
     width: 100%;
     height: 100vh;
@@ -13,6 +13,7 @@
     position: relative;
 }
 
+/* Items */
 .sliderContainer :global(.carousel .list .item) {
     width: 180px;
     height: 250px;
@@ -21,13 +22,29 @@
     transform: translateY(-70%);
     left: 70%;
     border-radius: 20px;
+    overflow: hidden;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-    background-position: 50% 50%;
+    background-position: center;
     background-size: cover;
     z-index: 100;
     transition: 1s;
 }
 
+/* Overlay oscuro */
+.sliderContainer :global(.carousel .list .item::before) {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(0, 0, 0, 0.55) 40%,
+        rgba(0, 0, 0, 0.25) 100%
+    );
+    z-index: 1;
+}
+
+/* Primeros dos slides ocupan toda la pantalla */
 .sliderContainer :global(.carousel .list .item:nth-child(1)),
 .sliderContainer :global(.carousel .list .item:nth-child(2)) {
     top: 0;
@@ -38,17 +55,32 @@
     height: 100%;
 }
 
-.sliderContainer :global(.carousel .list .item:nth-child(3)) { left: 67%; }
-.sliderContainer :global(.carousel .list .item:nth-child(4)) { left: calc(67% + 200px); }
-.sliderContainer :global(.carousel .list .item:nth-child(5)) { left: calc(67% + 400px); }
-.sliderContainer :global(.carousel .list .item:nth-child(6)) { left: calc(67% + 600px); }
+/* Posiciones de miniaturas */
+.sliderContainer :global(.carousel .list .item:nth-child(3)) {
+    left: 67%;
+}
+
+.sliderContainer :global(.carousel .list .item:nth-child(4)) {
+    left: calc(67% + 200px);
+}
+
+.sliderContainer :global(.carousel .list .item:nth-child(5)) {
+    left: calc(67% + 400px);
+}
+
+.sliderContainer :global(.carousel .list .item:nth-child(6)) {
+    left: calc(67% + 600px);
+}
+
 .sliderContainer :global(.carousel .list .item:nth-child(n+7)) {
     left: calc(67% + 800px);
     opacity: 0;
 }
 
+/* Contenido */
 .sliderContainer :global(.list .item .content) {
     position: absolute;
+    z-index: 2;
     top: 50%;
     left: 100px;
     transform: translateY(-50%);
@@ -58,10 +90,12 @@
     display: none;
 }
 
+/* Solo mostrar contenido del slide activo */
 .sliderContainer :global(.list .item:nth-child(2) .content) {
     display: block;
 }
 
+/* Título */
 .sliderContainer :global(.content .title) {
     font-size: 100px;
     text-transform: uppercase;
@@ -69,13 +103,18 @@
     font-weight: bold;
     line-height: 1;
     opacity: 0;
-    animation: animateSlider 1s ease-in-out 0.3s 1 forwards;
+    animation: animateSlider 1s ease-in-out 0.3s forwards;
 }
 
+/* Género */
 .sliderContainer :global(.content .genre) {
     font-size: 25px;
+    margin-top: 10px;
+    opacity: 0;
+    animation: animateSlider 1s ease-in-out 0.5s forwards;
 }
 
+/* Nombre */
 .sliderContainer :global(.content .name) {
     font-size: 100px;
     text-transform: uppercase;
@@ -83,55 +122,43 @@
     line-height: 1;
     text-shadow: 3px 4px 4px rgba(255, 255, 255, 0.8);
     opacity: 0;
-    animation: animateSlider 1s ease-in-out 0.6s 1 forwards;
+    animation: animateSlider 1s ease-in-out 0.6s forwards;
 }
 
+/* Descripción */
 .sliderContainer :global(.content .des) {
     margin-top: 10px;
     margin-bottom: 20px;
     font-size: 18px;
     margin-left: 5px;
+    line-height: 1.5;
     opacity: 0;
-    animation: animateSlider 1s ease-in-out 0.9s 1 forwards;
+    animation: animateSlider 1s ease-in-out 0.9s forwards;
 }
 
+/* Botones */
 .sliderContainer :global(.content .btn) {
     margin-left: 5px;
     opacity: 0;
-    animation: animateSlider 1s ease-in-out 1.2s 1 forwards;
+    animation: animateSlider 1s ease-in-out 1.2s forwards;
 }
 
 .sliderContainer :global(.content .btn button) {
     padding: 10px 20px;
-    border: none;
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
     cursor: pointer;
     font-size: 16px;
-    border: 2px solid #fff;
-}
-
-.sliderContainer :global(.content .btn button:nth-child(1)) {
-    margin-right: 15px;
-}
-
-.sliderContainer :global(.content .btn button:nth-child(1):hover) {
-    background-color: #fff;
-    color: #000;
-}
-
-.sliderContainer :global(.content .btn button:nth-child(2)) {
-    background: transparent;
-    color: #FFFFFF;
-    border: 2px solid #fff;
     transition: 0.3s;
 }
 
-.sliderContainer :global(.content .btn button:nth-child(2):hover) {
-    background-color: #FFFFFF;
-    color: #fff;
-    border-color: #FFFFFF;
+.sliderContainer :global(.content .btn button:hover) {
+    background: #fff;
+    color: #000;
 }
 
-/* Next / Prev arrows */
+/* Flechas */
 .sliderContainer :global(.arrows) {
     position: absolute;
     top: 80%;
@@ -160,11 +187,11 @@
 }
 
 .sliderContainer :global(.arrows button:hover) {
-    background: #fff;
-    color: #000;
+    background: #000;
+    color: #fff;
 }
 
-/* Time running */
+/* Barra de tiempo */
 .sliderContainer :global(.carousel .timeRunning) {
     position: absolute;
     z-index: 1000;
@@ -173,52 +200,79 @@
     background-color: #FFFFFF;
     left: 0;
     top: 0;
-    animation: runningTimeSlider 7s linear 1 forwards;
+    animation: runningTimeSlider 7s linear forwards;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media screen and (max-width: 999px) {
-    .sliderContainer :global(.list .item .content) { left: 50px; }
-    .sliderContainer :global(.content .title), .sliderContainer :global(.content .name) { font-size: 70px; }
-    .sliderContainer :global(.content .des) { font-size: 16px; }
+    .sliderContainer :global(.list .item .content) {
+        left: 50px;
+        width: 80%;
+    }
+
+    .sliderContainer :global(.content .title),
+    .sliderContainer :global(.content .name) {
+        font-size: 70px;
+    }
+
+    .sliderContainer :global(.content .des) {
+        font-size: 16px;
+    }
 }
 
 @media screen and (max-width: 690px) {
-    .sliderContainer :global(.list .item .content) { top: 40%; }
-    .sliderContainer :global(.content .title), .sliderContainer :global(.content .name) { font-size: 45px; }
-    .sliderContainer :global(.content .btn button) { padding: 10px 15px; font-size: 14px; }
+    .sliderContainer :global(.list .item .content) {
+        top: 40%;
+        left: 25px;
+        width: 85%;
+    }
+
+    .sliderContainer :global(.content .title),
+    .sliderContainer :global(.content .name) {
+        font-size: 45px;
+    }
+
+    .sliderContainer :global(.content .genre) {
+        font-size: 18px;
+    }
+
+    .sliderContainer :global(.content .des) {
+        font-size: 14px;
+    }
+
+    .sliderContainer :global(.content .btn button) {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .sliderContainer :global(.arrows) {
+        right: 10%;
+        top: 85%;
+    }
 }
 
-/* Overlay para imágenes grandes */
-.sliderContainer :global(.carousel .list .item:nth-child(1)::before),
-.sliderContainer :global(.carousel .list .item:nth-child(2)::before) {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.60);
-    z-index: 5;
-}
-
-.sliderContainer :global(.carousel .list .item .content) {
-    position: relative;
-    z-index: 10;
-}
-
-/* Animaciones Keyframes independientes */
+/* Animación contenido */
 @keyframes animateSlider {
     from {
         opacity: 0;
-        transform: translate(0, 100px);
-        filter: blur(33px);
+        transform: translateY(100px);
+        filter: blur(20px);
     }
+
     to {
         opacity: 1;
-        transform: translate(0);
+        transform: translateY(0);
         filter: blur(0);
     }
 }
 
+/* Animación barra tiempo */
 @keyframes runningTimeSlider {
-    from { width: 0%; }
-    to { width: 100%; }
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
 }
