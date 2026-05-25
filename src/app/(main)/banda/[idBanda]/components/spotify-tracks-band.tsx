@@ -1,16 +1,15 @@
-import { Banda } from "../types/band.types";
-import bgInfoBand from "@/assets/bg-infoBand.png";
+import { BackgroundSection } from "./background-section";
 
-export interface SpotifyTracksBandProps{
-  banda: Banda
+export interface SpotifyTracksBandProps {
+  bandaTracks: string[];
 }
 
-export const SpotifyTracksBand = ({ banda }: SpotifyTracksBandProps) => {
+export const SpotifyTracksBand = ({ bandaTracks }: SpotifyTracksBandProps) => {
   return (
-    <div className="w-full pl-[100px] pr-[100px] py-14 text-white mt-3 bg-center bg-no-repeat bg-cover" style={{ backgroundImage: `url(${bgInfoBand.src})` }}>
+    <BackgroundSection>
       <h1 className="text-title-2 font-extrabold mb-8">ESCUCHA <br /> NUESTRA MÚSICA</h1>
       <div className="flex gap-6">
-        {banda.tracksOnSpotify?.map((track) => {
+        {bandaTracks.map((track) => {
           return (
             <div className="w-full" key={track}>
               <iframe
@@ -24,6 +23,8 @@ export const SpotifyTracksBand = ({ banda }: SpotifyTracksBandProps) => {
           );
         })}
       </div>
-    </div>
+
+    </BackgroundSection>
+
   )
 }
