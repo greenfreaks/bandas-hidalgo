@@ -12,7 +12,7 @@ export const SliderBands = () => {
             <h2 className="text-[25px] font-bold">{banda.name}</h2>
             <span className="text-[16px] font-semibold">{banda.genero.join(" / ")}</span>
             {/* <p className="">{banda.desc}</p> */}
-            <LinkButton textButton="Visitar" url={banda.url} />
+            <LinkButton textButton="Visitar" url={`/banda/${banda.url}`} />
           </div>
         </div>
       ))}</div>
